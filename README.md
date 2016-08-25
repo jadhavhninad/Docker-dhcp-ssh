@@ -6,6 +6,9 @@ In our test environment, we had to use multiple virtual machines for testing nfs
 So in order to reduce their use and to make the process automated by integrating with jenkins, we are using docker containers. This
 required the  docker container to have a DHCP IP as well as access via SSH.
 
+## Docker container
+The container is build from the docker file which installs Openssh duing the process.
+
 ## How does it work?
 
 1. Run the network container and pass it the generated iptables script.
@@ -57,7 +60,9 @@ The network interface on the Docker host should allow for promiscuous mode: ip l
 When running on a virtualized environment (VMWare, VirtualBox, etc) the virtual tap devices should be set to allow promiscuous mode as well.
 Install the Docker Network Container scripts on each Docker host:
 
-git clone https://github.com/jeroenpeeters/docker-network-containers.git /tmp/networking-container
+```
+git clone https://github.com/jadhavhninad/Docker-dhcp-ssh.git /tmp/networking-container
 cp /tmp/networking-container/create-network-container_modified.sh /opt/bin/
 cp /tmp/networking-container/remove-network-container_modified.sh /opt/bin/
 chmod +x /opt/bin/create-network-container_modified.sh /opt/bin/remove-network-container_modified.sh
+```
