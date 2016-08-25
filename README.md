@@ -17,19 +17,19 @@ Next to setting up iptables routing inside the container, the generated script a
 ## Usage
 
 ### Create containers
-'create-network-container.sh **CONTAINERNUM IFDEV**'
+`create-network-container.sh **CONTAINERNUM IFDEV**`
 
 The script takes two paramaters. A random number to assign to the default container name, and the network interface of the host that must be bridged into the network container. To find out the name of the network interface on your host use ifconfig.
 
 ### Remove containers
 
-'remove-network-container.sh **CONTAINERUM**'
+`remove-network-container.sh **CONTAINERUM**`
 
 Releases the IP assigned to the container and then stops and removes it.
 
 ## Example 
 
-'''
+```
 [root@localhost bin]# ./create-network-container_modified.sh 019 eno50336512
 containerid=f87618181ca1f802241d19a468b8c45a6f66ed42f734935178eb18183b2d5602
 waiting on IP from DHCP
@@ -45,7 +45,7 @@ CONTAINER ID        IMAGE                                                       
 f87618181ca1        10.110.142.178:5000/test_image:latest                                  "bash /scripts/366326"   About a minute ago Up About a minute   22/tcp                       test-019
 1de8e30fe705        10.110.142.178:5000/test_image:latest                                  "bash /scripts/228282"   2 minutes ago        Up 2 minutes        22/tcp                       test-018
 
-'''
+```
 
 ## Installation
 
